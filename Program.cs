@@ -6,28 +6,34 @@ namespace tinhbmi
     {
         static void Main(string[] args)
         {
-           Console.OutputEncoding = System.Text.Encoding.UTF8;
-			double height;
-			double weight;
-			double bmi;
-			//Chiều cao: cm
-			//Cân nặng: kg
-			Console.WriteLine("Nhập chiều cao : ");
-			height = Convert.ToDouble(Console.ReadLine());
-			Console.WriteLine("Nhập cân nặng : ");
-			weight = Convert.ToDouble(Console.ReadLine());
-			height = height / 100;
-			bmi = weight / (height * height);
-			Console.WriteLine("BMI của bạn là:{0}", Math.Round(bmi, 4));
-			if (bmi < 18.5)
-				Console.WriteLine("Underweight.");
-			else if (bmi >= 18.5 && bmi < 25)
-				Console.WriteLine("Normal");
-			else if (bmi >= 25 && bmi < 30)
-				Console.WriteLine("Overweight");
-			else if (bmi >= 30)
-				Console.WriteLine("Obese");
-
-		}
-	}
+           Console.WriteLine("CT TINH CHI SO BMI ");
+            Console.WriteLine("------------------------------- ");
+            Console.WriteLine("Nhap chieu cao (m):");
+            double chieucao = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Nhap can nang (kg):");
+            double cannang = Convert.ToDouble(Console.ReadLine());
+            TinhBMI(chieucao, cannang);
+        }
+        static double TinhBMI(Double chieucao ,double cannang)
+        {
+            double bmi = cannang / (chieucao * chieucao);
+            if (bmi < 18.5)
+            {
+                Console.WriteLine("BMI = {0} Ban la nguoi gay !", bmi);
+            }
+            else if ((18.5 <= bmi) && (bmi < 25))
+            {
+                Console.WriteLine("BMI = {0} Ban la nguoi binh thuong !", bmi);
+            }
+            else if ((25 <= bmi) && (bmi < 30))
+            {
+                Console.WriteLine("BMI = {0} Ban la nguoi thua can !", bmi);
+            }
+            else
+            {
+                Console.WriteLine("BMI = {0} Ban la nguoi beo phi !", bmi);
+            }
+            return 0;
+        }
+    }
 }
